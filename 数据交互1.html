@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="angular.js"></script>
+    <script src="jquery.js"></script>
+    <script>
+        let mod = angular.module("test",[])
+        mod.controller("main",function($scope){
+            $.ajax({
+                url:'arr.txt',
+                dataType:'json',
+                success(res){
+                    $scope.arr = res
+                    $scope.$apply()
+                },
+                error(){
+                    alert("error")
+                }
+            })
+        })
+    </script>
+</head>
+<body ng-controller="main">
+   <ul ng-repeat="a in arr">{{a}}</ul>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="angular.js"></script>
+    <script>
+        let mod = angular.module('test',[])
+        mod.controller('main',function($scope,$http){
+            $http.post('1.php',{
+                
+            })
+        })
+    </script>
+</head>
+<body ng-controller="main"> 
+    <input type="text" ng-model="a" >
+    <input type="text" ng-model="b" >
+    <input type="submit"  value="计算">
+</body>
+</html>

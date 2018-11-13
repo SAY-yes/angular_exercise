@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="angular.js"></script>
+    <script>
+        let mod = angular.module('test',[])
+        mod.controller('main',function($scope,$http,$q){
+            $q.all([
+                $http.get('data/1.txt'),
+                $http.get('data/2.txt'),
+                $http.get('data/3.txt'),
+            ]).then(arr=>{
+                $scope.data1 = arr[0].data
+                $scope.data2 = arr[1].data
+                $scope.data3 = arr[2].data
+            },()=>{
+                alert('error')
+            })
+        })
+    </script>
+</head>
+<body ng-controller="main">
+  {{data1}},{{data2}},{{data3}}
+</body>
+</html>

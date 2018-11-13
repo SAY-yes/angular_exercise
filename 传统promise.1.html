@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <script>
+        Promise.all([
+            $.ajax({url:'data/1.txt',dataType:'json'}),
+            $.ajax({url:'data/2.txt',dataType:'json'}),
+            $.ajax({url:'data/3.txt',dataType:'json'}),
+        ]).then(arr=>{
+            console.log(arr)
+        },()=>{
+            console.log('error')
+        })
+    </script>
+</head>
+<body ng-controller="main">
+   a:{{a}}
+</body>
+</html>

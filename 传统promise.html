@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <script>
+        $.ajax({
+            url:'data/1.txt',
+            dataType:'json',
+            success(data1){
+                $.ajax({
+                    url:'data/2.txt',
+                    dataType:'json',
+                    success(data2){
+                        $.ajax({
+                            url:'data/3.txt',
+                            dataType:'json',
+                            success(data3){
+                                console.log(data1,data2,data3)
+                            },
+                            error(){
+                                alert('读取失败')
+                            }
+                        })
+                    },
+                    error(){
+                        alert('读取失败')
+                    }
+                })
+            },
+            error(){
+                alert('读取失败')
+            }
+        })
+    </script>
+</head>
+<body ng-controller="main">
+   a:{{a}}
+</body>
+</html>

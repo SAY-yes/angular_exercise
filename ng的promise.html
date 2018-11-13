@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test1">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="angular.js"></script>
+    <script>
+        let mod = angular.module('test1',[])
+        mod.controller('main1',function($scope,$http){
+            $http.get('data/1.txt').then(res=>{
+                let data1 = res.data
+                $http.get('data/2.txt').then(res=>{
+                    let data2 = res.data
+                    $http.get('data/3.txt').then(res=>{
+                        let data3 = res.data
+                        console.log(data1,data2,data3)
+                    },()=>{
+                        alert('error')
+                    })
+                },()=>{
+                    alert('error')
+                })
+            },()=>{
+                alert('error')
+            })
+        })
+    </script>
+</head>
+<body ng-controller="main1">
+  
+</body>
+</html>

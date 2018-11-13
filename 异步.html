@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="angular.js"></script>
+    <script>
+        let mod = angular.module("test",[])
+        mod.controller("main",function($scope,$interval,$timeout){
+            $scope.a = 0
+            $timeout(function(){
+                $scope.a++
+            },1000)
+        })
+    </script>
+</head>
+<body ng-controller="main">
+   a:{{a}}
+</body>
+</html>
